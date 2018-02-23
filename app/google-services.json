@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "154868355911",
+    "firebase_url": "https://miprimeraapp-pacotech.firebaseio.com",
+    "project_id": "miprimeraapp-pacotech",
+    "storage_bucket": "miprimeraapp-pacotech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154868355911:android:602b43120abcd545",
+        "android_client_info": {
+          "package_name": "com.example.firebaseprueba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154868355911-71qtnr79nltm5kr0rakid5q0amonevgj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebaseprueba",
+            "certificate_hash": "cf32595073049c43c227195bec4cdd42f60ca8fe"
+          }
+        },
+        {
+          "client_id": "154868355911-ra2dcrompruftmu5k953vgvovhqj5b3l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOTgi_ZpCaYRN0JNky7B1AvFR0-LMbje0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154868355911-ra2dcrompruftmu5k953vgvovhqj5b3l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
