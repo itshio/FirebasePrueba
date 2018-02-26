@@ -31,4 +31,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(form_ejercicio);
 
     }
+
+    public void click_parte3 (View view){
+
+        Intent form_tres = new Intent(getApplicationContext(),ActivityParte3.class);
+        startActivity(form_tres);
+
+    }
 }

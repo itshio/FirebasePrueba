@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ActivityParte1" />
         <activity android:name=".ActivityParte2" />
-        <activity android:name=".ActivityEjercicioParte1"></activity>
+        <activity android:name=".ActivityEjercicioParte1" />
+        <activity android:name=".ActivityParte3"></activity>
     </application>
 
 </manifest>

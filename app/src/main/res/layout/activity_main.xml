@@ -28,4 +28,11 @@
         android:layout_height="wrap_content"
         android:onClick="click_dos"
         android:text="PARTE 2" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="click_parte3"
+        android:text="PARTE 3" />
 </LinearLayout>
