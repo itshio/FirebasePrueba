@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -85,6 +86,22 @@ public class ActivityParte3 extends AppCompatActivity {
 
     }
     public void click_insertar (View view){
+
+
+        String nombre = et_nombre.getText().toString();
+        String dorsal = et_dorsal.getText().toString();
+        String sueldo = et_sueldo.getText().toString();
+        String posicion = et_posicion.getText().toString();
+
+        if( nombre.equals("")||dorsal.equals("")||sueldo.equals("")||posicion.equals("")){
+
+            Toast.makeText(this,"Debes rellenar todos los campos",Toast.LENGTH_LONG).show();
+
+
+        }else{
+
+
+        }
 
 
     }
