@@ -101,6 +101,9 @@ public class ActivityParte3 extends AppCompatActivity {
         }else{
 
 
+
+
+
         }
 
 
