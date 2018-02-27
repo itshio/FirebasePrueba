@@ -53,10 +53,10 @@ public class ActivityParte3 extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 CJugador spi_jug = dataSnapshot.getValue(CJugador.class);
-                et_nombre.setText("Nombre: "+spi_jug.getNombre());
-                et_dorsal.setText("Nombre: "+spi_jug.getDorsal()+"");
-                et_posicion.setText("Nombre: "+spi_jug.getPosicion());
-                et_sueldo.setText("Nombre: "+spi_jug.getSueldo()+"");
+                et_nombre.setText(spi_jug.getNombre());
+                et_dorsal.setText(spi_jug.getDorsal()+"");
+                et_posicion.setText(spi_jug.getPosicion());
+                et_sueldo.setText(spi_jug.getSueldo()+"");
             }
 
             @Override
@@ -76,13 +76,78 @@ public class ActivityParte3 extends AppCompatActivity {
 
     public void click_modificar(View view){
 
-    }
-    public void click_borrar (View vie ){
+        String nombre = et_nombre.getText().toString();
+        String dorsal = et_dorsal.getText().toString();
+        String sueldo = et_sueldo.getText().toString();
+        String posicion = et_posicion.getText().toString();
+        String idseleccionado= spjugadores.getSelectedItem().toString();
 
-        et_nombre.setText("");
-        et_dorsal.setText("");
-        et_sueldo.setText("");
-        et_posicion.setText("");
+        if( nombre.equals("")||dorsal.equals("")||sueldo.equals("")||posicion.equals("")){
+
+            Toast.makeText(this,"Debes rellenar todos los campos",Toast.LENGTH_LONG).show();
+
+
+        }else{
+
+            int dorsales = Integer.parseInt(dorsal);
+            double sueldos = Double.parseDouble(sueldo);
+            CJugador nuevoJugador = new CJugador(nombre,dorsales,posicion,sueldos);
+            dbRef = FirebaseDatabase.getInstance().getReference().child("jugadores");
+
+            // STRING NUEVA CLASE
+
+            dbRef.child(idseleccionado).setValue(nuevoJugador, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+                    if (databaseError == null){
+
+                        Toast.makeText(getApplicationContext(),"cambiado correctamente",Toast.LENGTH_LONG).show();
+
+                        limpiar();
+
+
+                    }else{
+
+                        Toast.makeText(getApplicationContext(),"no se pudo modificar",Toast.LENGTH_LONG).show();
+
+
+                    }
+
+                }
+            });
+
+
+
+
+
+        }
+
+    }
+    public void click_borrar (View view ){
+
+        String idseleccionado= spjugadores.getSelectedItem().toString();
+
+        dbRef.child(idseleccionado).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if (databaseError == null){
+
+                    Toast.makeText(getApplicationContext(),"eliminado correctamente",Toast.LENGTH_LONG).show();
+                    limpiar();
+
+                }else{
+
+                    Toast.makeText(getApplicationContext(),"no se pudo eliminar correctamente",Toast.LENGTH_LONG).show();
+
+
+                }
+            }
+        });
+
+        dbRef.addValueEventListener(valueEventListener);
+
+
 
     }
     public void click_insertar (View view){
@@ -100,11 +165,49 @@ public class ActivityParte3 extends AppCompatActivity {
 
         }else{
 
+            int dorsales = Integer.parseInt(dorsal);
+            double sueldos = Double.parseDouble(sueldo);
+            CJugador nuevoJugador = new CJugador(nombre,dorsales,posicion,sueldos);
+            dbRef = FirebaseDatabase.getInstance().getReference().child("jugadores");
+
+            // STRING NUEVA CLASE
+
+            dbRef.child("j5").setValue(nuevoJugador, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+
+                    if (databaseError == null){
+
+                        Toast.makeText(getApplicationContext(),"agregado correctamente",Toast.LENGTH_LONG).show();
+
+                        limpiar();
+
+
+                    }else{
+
+                        Toast.makeText(getApplicationContext(),"no se puede agregar",Toast.LENGTH_LONG).show();
+
+
+                    }
+
+                }
+            });
+
 
 
 
 
         }
+
+
+    }
+
+    private void limpiar (){
+
+        et_nombre.setText("");
+        et_dorsal.setText("");
+        et_sueldo.setText("");
+        et_posicion.setText("");
 
 
     }
